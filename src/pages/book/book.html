@@ -15,11 +15,11 @@
 
 <ion-content>
   <form [formGroup]="regForm" (ngSubmit)="save()" novalidate>
-      <ion-toolbar color="light">
-          <ion-avatar>
-              <img name='pimage' height="100px" src="{{base64Image}}" alt="assets/imgs/Avatar.jpg" class="img-center-round" (click)="takePicture()">
-            </ion-avatar>
-        </ion-toolbar>
+    <ion-toolbar color="light">
+      <ion-avatar>
+        <img name='pimage' height="100px" src="{{base64Image}}" alt="assets/imgs/Avatar.jpg" class="img-center-round" (click)="takePicture()">
+      </ion-avatar>
+    </ion-toolbar>
     <!-- <ion-card no-padding style="background-color:#ddd;" full>
       <ion-avatar full>
         <img name='pimage' src="{{base64Image}}" alt="assets/imgs/Avatar.jpg" class="img-center-round" (click)="takePicture()">
@@ -28,19 +28,41 @@
 
     <ion-list padding>
       <ion-item>
-        <ion-label floating>NAME</ion-label>
+        <ion-label floating>REG.NO</ion-label>
         <ion-input type='text' formControlName="name" [class.invalid]="!regForm.controls.name.valid  && (regForm.controls.name.touched || submitClicked)"></ion-input>
       </ion-item>
       {{regForm.controls.value}}
       <ion-item *ngIf="!regForm.controls.name.valid  && (regForm.controls.name.touched || submitClicked)" no-lines>
         <p>Please enter name.</p>
       </ion-item>
+        <ion-row>
+          <ion-col col-8>
+              <ion-item>
+                  <ion-label floating>Modal</ion-label>
+                  <ion-select formControlName="city" [class.invalid]="!regForm.controls.city.valid  && (regForm.controls.city.touched || submitClicked)">
+                    <ion-option value='Hyderabad' selected='true'>Hyderabad</ion-option>
+                    <ion-option value='Banglore'>Bangalore</ion-option>
+                  </ion-select>
+                </ion-item>
+              
+          </ion-col>
+          <ion-col col-4>
+              <ion-item>
+                  <ion-label floating>Year</ion-label>
+                  <ion-select formControlName="city" [class.invalid]="!regForm.controls.city.valid  && (regForm.controls.city.touched || submitClicked)">
+                    <ion-option value='Hyderabad' selected='true'>Hyderabad</ion-option>
+                    <ion-option value='Banglore'>Bangalore</ion-option>
+                  </ion-select>
+                </ion-item>
+              
+          </ion-col>
+        </ion-row>
       <ion-item>
-        <ion-label floating>DATE OF BIRTH</ion-label>
+        <ion-label floating>BOOKING DATE</ion-label>
         <ion-datetime displayFormat='MM/DD/YYYY' formControlName="dob" [class.invalid]="!regForm.controls.dob.valid  && (regForm.controls.dob.touched || submitClicked)"></ion-datetime>
       </ion-item>
       <ion-item *ngIf="!regForm.controls.dob.valid && (regForm.controls.dob.touched || submitClicked)" no-lines>
-        <p>Please enter date of birth.</p>
+        <p>Please enter date of booking.</p>
       </ion-item>
       <ion-item>
         <ion-label floating>ADDRESS</ion-label>
@@ -63,6 +85,6 @@
         <a href="#" (click)="showConditions()">the terms</a>
       </span>
     </li>
-    <button type="submit" ion-button block class="submit-button" [disabled]="!regForm.valid">SUBMIT</button>
+    <button padding type="submit" ion-button block class="submit-button" [disabled]="!regForm.valid">SUBMIT</button>
   </form>
 </ion-content>
