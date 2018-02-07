@@ -1,3 +1,57 @@
-page-home {
+.ios, .md {
+ 
+    page-home {
+   
+      ion-slide {
+        background-color: #b8b379;
+      }
+   
+      ion-slide img {
+        height: 70vh !important;
+        width: auto !important;
+      }
 
-}
+      .card-footer{
+        border-top: 1px solid #ddd;
+    }
+
+    .card-title{
+        // font-family: ProximaNova, Arial, "Helvetica Neue", sans-serif;
+        font-family: 'Montserrat', sans-serif;
+        font-style: normal;
+        font-weight:600;
+        font-size:20px;
+        line-height: 24px;
+        color:#282c3f
+    }
+    .btn-book{
+        background-color: #b8b379;
+        font-family: sans-serif;
+        /* font-family: ProximaNova, Arial, "Helvetica Neue", sans-serif; */
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 19px;
+        color: #fff;
+        letter-spacing: 1.5px;
+    }
+
+    ul {
+        padding: 0px;
+        margin: 0 auto;
+        &.rating li {
+        //   padding: 5px 10px !important;
+          background: none;
+          color: #ffb400;
+      
+          ion-icon {
+            font-size: 25px;
+          }
+        }
+      }
+   
+    }
+
+    
+   
+  }
