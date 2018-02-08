@@ -7,84 +7,109 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Book a Service</ion-title>
+    <ion-title>Book a service</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content>
-  <form [formGroup]="regForm" (ngSubmit)="save()" novalidate>
-    <ion-toolbar color="light">
+  <form [formGroup]="regForm" (ngSubmit)="bookService()" novalidate>
+    <ion-toolbar color="light" text-center padding (click)="takePicture()">
       <ion-avatar>
-        <img name='pimage' height="100px" src="{{base64Image}}" alt="assets/imgs/Avatar.jpg" class="img-center-round" (click)="takePicture()">
+        <img name='pimage' height="100px" src="{{base64Image}}" alt="assets/imgs/Avatar.jpg" class="img-center-round">
       </ion-avatar>
+      (Bike Image)
     </ion-toolbar>
-    <!-- <ion-card no-padding style="background-color:#ddd;" full>
-      <ion-avatar full>
-        <img name='pimage' src="{{base64Image}}" alt="assets/imgs/Avatar.jpg" class="img-center-round" (click)="takePicture()">
-      </ion-avatar>
-    </ion-card> -->
+    <ion-card text-center padding>
+      <ion-label no-padding>Book your bike service for</ion-label>
+      <button type="button" ion-button icon-left>
+        Today &nbsp;
+        <ion-icon ios="ios-calendar" md="md-calendar"></ion-icon>
+      </button>
+      <button type="button" ion-button icon-left>
+        Tomorrow &nbsp;
+        <ion-icon ios="ios-calendar" md="md-calendar"></ion-icon>
+      </button>
+      <button type="button" ion-button icon-left>
+        Day After Tomorrow &nbsp;
+        <ion-icon ios="ios-calendar" md="md-calendar"></ion-icon>
+      </button>
+      <ion-label>( Book for 10-Feb-2018 02:00 PM )</ion-label>
+    </ion-card>
 
+    <ion-card padding icon-left (click)="estimateCost()">
+      <ion-label class="currency">
+        <ion-icon icon-start ios="ios-calculator" md="md-calculator"></ion-icon>Find Your Estimated Cost Here !
+      </ion-label>
+      <ion-label class="currency" text-center>
+        Your Estimated Cost: {{2500 | currency : "&#8377; " : 2 }}
+      </ion-label>
+    </ion-card>
     <ion-list padding>
+      <ion-item no-lines no-padding>
+        <ion-label no-padding text-center color="secondary" class="booking-secondary-font">Please fill details below</ion-label>
+      </ion-item>
       <ion-item>
-        <ion-label floating>REG.NO</ion-label>
+        <ion-label floating>Registration Number</ion-label>
         <ion-input type='text' formControlName="name" [class.invalid]="!regForm.controls.name.valid  && (regForm.controls.name.touched || submitClicked)"></ion-input>
       </ion-item>
       {{regForm.controls.value}}
       <ion-item *ngIf="!regForm.controls.name.valid  && (regForm.controls.name.touched || submitClicked)" no-lines>
-        <p>Please enter name.</p>
+        <p>Please enter vehicle registration number.</p>
       </ion-item>
-        <ion-row>
-          <ion-col col-8>
-              <ion-item>
-                  <ion-label floating>Modal</ion-label>
-                  <ion-select formControlName="city" [class.invalid]="!regForm.controls.city.valid  && (regForm.controls.city.touched || submitClicked)">
-                    <ion-option value='Hyderabad' selected='true'>Hyderabad</ion-option>
-                    <ion-option value='Banglore'>Bangalore</ion-option>
-                  </ion-select>
-                </ion-item>
-              
-          </ion-col>
-          <ion-col col-4>
-              <ion-item>
-                  <ion-label floating>Year</ion-label>
-                  <ion-select formControlName="city" [class.invalid]="!regForm.controls.city.valid  && (regForm.controls.city.touched || submitClicked)">
-                    <ion-option value='Hyderabad' selected='true'>Hyderabad</ion-option>
-                    <ion-option value='Banglore'>Bangalore</ion-option>
-                  </ion-select>
-                </ion-item>
-              
-          </ion-col>
-        </ion-row>
-      <ion-item>
-        <ion-label floating>BOOKING DATE</ion-label>
-        <ion-datetime displayFormat='MM/DD/YYYY' formControlName="dob" [class.invalid]="!regForm.controls.dob.valid  && (regForm.controls.dob.touched || submitClicked)"></ion-datetime>
-      </ion-item>
+
+
+
+      <ion-row>
+        <ion-col col-8>
+          <ion-item no-padding style="padding-left: 11px;">
+
+            <ion-label floating>Modal</ion-label>
+            <ion-select formControlName="city" [class.invalid]="!regForm.controls.city.valid  && (regForm.controls.city.touched || submitClicked)">
+              <ion-option value='Pulsar' selected='true'>Pulsar</ion-option>
+              <ion-option value='Activa'>Activa</ion-option>
+            </ion-select>
+
+          </ion-item>
+        </ion-col>
+        <ion-col col-4 style="padding-right:0;">
+          <ion-item no-padding style="padding-right:0;">
+            <ion-label floating>Year</ion-label>
+            <ion-select formControlName="city" [class.invalid]="!regForm.controls.city.valid  && (regForm.controls.city.touched || submitClicked)">
+              <ion-option value='2018' selected='true'>2018</ion-option>
+              <ion-option value='2017'>2017</ion-option>
+              <ion-option value='2016'>2016</ion-option>
+              <ion-option value='2015'>2015</ion-option>
+              <ion-option value='2014'>2014</ion-option>
+              <ion-option value='2013'>2013</ion-option>
+              <ion-option value='2012'>2012</ion-option>
+            </ion-select>
+
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
       <ion-item *ngIf="!regForm.controls.dob.valid && (regForm.controls.dob.touched || submitClicked)" no-lines>
         <p>Please enter date of booking.</p>
       </ion-item>
-      <ion-item>
-        <ion-label floating>ADDRESS</ion-label>
+      <ion-item lines>
+        <ion-label floating>Pickup Address</ion-label>
         <ion-input type='text' formControlName="address" [class.invalid]="!regForm.controls.address.valid  && (regForm.controls.address.touched || submitClicked)"></ion-input>
       </ion-item>
-      <ion-item>
-        <ion-label floating>CITY</ion-label>
-        <ion-select formControlName="city" [class.invalid]="!regForm.controls.city.valid  && (regForm.controls.city.touched || submitClicked)">
-          <ion-option value='Hyderabad' selected='true'>Hyderabad</ion-option>
-          <ion-option value='Banglore'>Bangalore</ion-option>
-        </ion-select>
-      </ion-item>
-
     </ion-list>
     <li class="item item-checkbox" style="height:60px;list-style: none;border-top: 1px solid #ddd;">
-      <div class="checkbox">
+      <div style="padding-left:20px;" class="checkbox">
         <input id="terms" name="terms" type="checkbox" required>
       </div>
       <span for="terms">I agree to
         <a href="#" (click)="showConditions()">the terms</a>
       </span>
     </li>
-    <button padding type="submit" ion-button block class="submit-button" [disabled]="!regForm.valid">SUBMIT</button>
+    <ion-list>
+      <ion-item>
+        <button type="submit" ion-button padding block class="submit-button" style="background-color:#9d2229">BOOK</button>
+      </ion-item>
+    </ion-list>
   </form>
 </ion-content>

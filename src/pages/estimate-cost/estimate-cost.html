@@ -1,0 +1,60 @@
+<!--
+  Generated template for the EstimateCostPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Estimated Cost</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid>
+    <ion-label>Bike Capacity</ion-label>
+    <ion-row>
+      <ion-col col-4 style="border-bottom:2px solid #89C5C7;" (click)="calculate(100)">
+        <ion-avatar item-start>
+          <img src="assets/imgs/motorcycle_128x128.png">
+        </ion-avatar>
+      </ion-col>
+      <ion-col col-4 (click)="calculate(150)">
+        <ion-avatar item-start>
+          <img src="assets/imgs/motorcycle_128x128.png">
+        </ion-avatar>
+      </ion-col>
+      <ion-col col-4 (click)="calculate(200)">
+        <ion-avatar item-start>
+          <img src="assets/imgs/motorcycle_128x128.png">
+        </ion-avatar>
+      </ion-col>
+    </ion-row>
+    <ion-label>Service Type</ion-label>
+    <ion-row>
+      <ion-col col-6>
+        <button type="button" block ion-button style="background-color:#EAB244" color="#EAB244" (click)="cal('e')">Economy</button>
+      </ion-col>
+      <ion-col col-6>
+
+        <button type="button" block ion-button style="background-color:#30AAB3" (click)="cal('p')">Premium</button>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-card padding icon-left>
+    <ion-label class="currency" style="line-height:2.25" text-center>
+      Your Estimated
+      <br>Cost: {{estimatedCost | currency : "&#8377; " : 2 }}
+    </ion-label>
+  </ion-card>
+
+</ion-content>
+<ion-footer>
+  <button ion-button block (click)="dismiss()">Close</button>
+
+</ion-footer>
