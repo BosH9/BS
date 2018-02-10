@@ -11,11 +11,15 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { BookPage } from '../pages/book/book';
 import { EstimateCostPage, PopoverPage } from '../pages/estimate-cost/estimate-cost';
+import { SelectBikePage } from '../pages/select-bike/select-bike';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { Ionic2RatingModule } from 'ionic2-rating';
+import { AddBikeDetailsPage } from '../pages/add-bike-details/add-bike-details';
+import { ChooseYourBikePage } from '../pages/choose-your-bike/choose-your-bike';
+import { MyBikesPage } from '../pages/my-bikes/my-bikes';
 
 @NgModule({
   declarations: [
@@ -26,7 +30,11 @@ import { Ionic2RatingModule } from 'ionic2-rating';
     TabsPage,
     BookPage,
     EstimateCostPage,
-    PopoverPage
+    PopoverPage,
+    SelectBikePage,
+    AddBikeDetailsPage,
+    ChooseYourBikePage,
+    MyBikesPage
   ],
   imports: [
     BrowserModule,
@@ -42,7 +50,11 @@ import { Ionic2RatingModule } from 'ionic2-rating';
     TabsPage,
     BookPage,
     EstimateCostPage,
-    PopoverPage
+    PopoverPage,
+    SelectBikePage,
+    AddBikeDetailsPage,
+    ChooseYourBikePage,
+    MyBikesPage
   ],
   providers: [
     StatusBar,
