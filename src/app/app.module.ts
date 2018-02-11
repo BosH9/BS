@@ -20,6 +20,7 @@ import { Ionic2RatingModule } from 'ionic2-rating';
 import { AddBikeDetailsPage } from '../pages/add-bike-details/add-bike-details';
 import { ChooseYourBikePage } from '../pages/choose-your-bike/choose-your-bike';
 import { MyBikesPage } from '../pages/my-bikes/my-bikes';
+import { BookingsPage } from '../pages/bookings/bookings';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { MyBikesPage } from '../pages/my-bikes/my-bikes';
     SelectBikePage,
     AddBikeDetailsPage,
     ChooseYourBikePage,
-    MyBikesPage
+    MyBikesPage,
+    BookingsPage
   ],
   imports: [
     BrowserModule,
@@ -54,7 +56,8 @@ import { MyBikesPage } from '../pages/my-bikes/my-bikes';
     SelectBikePage,
     AddBikeDetailsPage,
     ChooseYourBikePage,
-    MyBikesPage
+    MyBikesPage,
+    BookingsPage
   ],
   providers: [
     StatusBar,

@@ -1,3 +1,5 @@
+import { Bike } from "./bike";
+
 export class Service{
     Id : number;
     Bike: Bike;
