@@ -7,26 +7,39 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>bookings</ion-title>
+    <ion-title>Bookings</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+  Current Bookings
+  <ion-item-group [class.hide]="booking.deliveryStatus=='D'" *ngFor="let booking of bookings" style="border:1px solid #ddd;margin-bottom:15px;">
+    <ion-item-divider color="light">
+      <ion-avatar item-start>
+        <img src="assets/imgs/motorcycle_128x128.png">
+      </ion-avatar><p item-start>AP 24 L 2068</p> <p item-end>{{booking.bookingDate}}</p>
+    </ion-item-divider>
+    <ion-item text-center>Progress bar...</ion-item>
+    <ion-item >
+      <p item-start>Estimated Delivery on</p>
+      <p item-end style="margin-right:0 !important;">{{booking.bookingDate}}</p>
+    </ion-item>
+  </ion-item-group>
+ 
   <ion-list no-lines>
-      <ion-label>Previous orders</ion-label>
-    <ion-item *ngFor="let booking of bookings" style="border:1px solid #222;margin-bottom:15px;">
-      <!-- <ion-row>
-        <ion-label>Progress bar....</ion-label>
-      </ion-row> -->
-      <ion-row>
-        {{booking.bookingDate}} - {{booking.deliveryDate}}
-      </ion-row>
-      <ion-row>
-        Rating: {{booking.rating}}
-      </ion-row>
-      
+
+    <br>Previous Bookings
+    <ion-item [class.hide]="booking.deliveryStatus=='P'" *ngFor="let booking of bookings" 
+    style="border:1px solid #ddd;margin-bottom:15px;" (click)="gotoInvoice(booking.bookingId)">
+
+      <ion-avatar item-end class="bike-img-avt">
+        <img  src="assets/imgs/motorcycle_128x128.png">
+      </ion-avatar>
+      <h2 class="grid-main-header">AP 24 L 2068 </h2>
+      <h3 >{{booking.bookingDate}} - {{booking.deliveryDate}}</h3>
+      <hr><p style="text-align:end;">Amount: {{booking.amount | currency : "$ " : 2 }}</p>
     </ion-item>
   </ion-list>
 </ion-content>

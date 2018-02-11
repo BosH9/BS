@@ -1,0 +1,21 @@
+export class Item{
+    itemId:string;
+    name:string;
+    quantity:number;
+    price:number;
+    discountedPrice:number;
+    createdDate:string;
+    updatedDate:string;
+    status:string;
+    constructor(itemId:string,name:string,quantity:number,price:number,discountedPrice:number,createdDate:string,
+    updatedDate:string,status:string){
+        this.itemId=itemId;
+        this.name=name;
+        this.quantity=quantity;
+        this.price=price;
+        this.discountedPrice=discountedPrice;
+        this.createdDate=createdDate;
+        this.updatedDate=updatedDate;
+        this.status=status;
+    }
+}

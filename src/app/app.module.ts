@@ -21,6 +21,8 @@ import { AddBikeDetailsPage } from '../pages/add-bike-details/add-bike-details';
 import { ChooseYourBikePage } from '../pages/choose-your-bike/choose-your-bike';
 import { MyBikesPage } from '../pages/my-bikes/my-bikes';
 import { BookingsPage } from '../pages/bookings/bookings';
+import { InvoicePage } from '../pages/invoice/invoice';
+
 
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ import { BookingsPage } from '../pages/bookings/bookings';
     AddBikeDetailsPage,
     ChooseYourBikePage,
     MyBikesPage,
-    BookingsPage
+    BookingsPage,
+    InvoicePage
   ],
   imports: [
     BrowserModule,
@@ -57,7 +60,8 @@ import { BookingsPage } from '../pages/bookings/bookings';
     AddBikeDetailsPage,
     ChooseYourBikePage,
     MyBikesPage,
-    BookingsPage
+    BookingsPage,
+    InvoicePage
   ],
   providers: [
     StatusBar,

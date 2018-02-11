@@ -15,8 +15,11 @@ export class Booking {
     updatedDate:string;
     status:string;
 
+    deliveryStatus:string;
+
     constructor(bookingId:string,bike:Bike,bookingDate:string,deliveryDate:string,rating:number,
-        amount:number,invoiceId:string,createdDate:string,updatedDate:string,status:string) {
+        amount:number,invoiceId:string,createdDate:string,updatedDate:string,status:string
+    ,deliveryStatus:string) {
         
             this.bookingId=bookingId;
             this.bike=bike;
@@ -28,6 +31,7 @@ export class Booking {
             this.createdDate=createdDate;
             this.updatedDate=updatedDate;
             this.status=status;
+            this.deliveryStatus=deliveryStatus;
 
     }
 }
