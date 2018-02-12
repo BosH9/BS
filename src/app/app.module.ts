@@ -11,6 +11,7 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { BookPage } from '../pages/book/book';
 import { EstimateCostPage, PopoverPage } from '../pages/estimate-cost/estimate-cost';
+import { ChooseBikePage } from '../pages/choose-bike/choose-bike';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -26,7 +27,8 @@ import { Ionic2RatingModule } from 'ionic2-rating';
     TabsPage,
     BookPage,
     EstimateCostPage,
-    PopoverPage
+    PopoverPage,
+    ChooseBikePage
   ],
   imports: [
     BrowserModule,
@@ -42,7 +44,8 @@ import { Ionic2RatingModule } from 'ionic2-rating';
     TabsPage,
     BookPage,
     EstimateCostPage,
-    PopoverPage
+    PopoverPage,
+    ChooseBikePage
   ],
   providers: [
     StatusBar,
