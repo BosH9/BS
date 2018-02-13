@@ -11,12 +11,22 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { BookPage } from '../pages/book/book';
 import { EstimateCostPage, PopoverPage } from '../pages/estimate-cost/estimate-cost';
+<<<<<<< HEAD
 import { ChooseBikePage } from '../pages/choose-bike/choose-bike';
+=======
+import { SelectBikePage } from '../pages/select-bike/select-bike';
+>>>>>>> 653157a1b47997d4a957341a8bf12472dad6c4bf
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { Ionic2RatingModule } from 'ionic2-rating';
+import { AddBikeDetailsPage } from '../pages/add-bike-details/add-bike-details';
+import { ChooseYourBikePage } from '../pages/choose-your-bike/choose-your-bike';
+import { MyBikesPage } from '../pages/my-bikes/my-bikes';
+import { BookingsPage } from '../pages/bookings/bookings';
+import { InvoicePage } from '../pages/invoice/invoice';
+
 
 @NgModule({
   declarations: [
@@ -28,7 +38,16 @@ import { Ionic2RatingModule } from 'ionic2-rating';
     BookPage,
     EstimateCostPage,
     PopoverPage,
+<<<<<<< HEAD
     ChooseBikePage
+=======
+    SelectBikePage,
+    AddBikeDetailsPage,
+    ChooseYourBikePage,
+    MyBikesPage,
+    BookingsPage,
+    InvoicePage
+>>>>>>> 653157a1b47997d4a957341a8bf12472dad6c4bf
   ],
   imports: [
     BrowserModule,
@@ -45,7 +64,16 @@ import { Ionic2RatingModule } from 'ionic2-rating';
     BookPage,
     EstimateCostPage,
     PopoverPage,
+<<<<<<< HEAD
     ChooseBikePage
+=======
+    SelectBikePage,
+    AddBikeDetailsPage,
+    ChooseYourBikePage,
+    MyBikesPage,
+    BookingsPage,
+    InvoicePage
+>>>>>>> 653157a1b47997d4a957341a8bf12472dad6c4bf
   ],
   providers: [
     StatusBar,

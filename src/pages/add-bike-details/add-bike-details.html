@@ -1,0 +1,63 @@
+<!--
+  Generated template for the AddBikeDetailsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>addBikeDetails</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <form [formGroup]="addBikeForm" (ngSubmit)="addBike()" novalidate>
+      <ion-row>
+          <ion-avatar>
+              <img name='pimage' height="100px" src="{{base64Image}}" alt="assets/imgs/Avatar.jpg" class="img-center-round">
+            </ion-avatar>
+            (Bike Image)
+      </ion-row>
+      <ion-row>
+          <ion-item>
+              <ion-label floating>Registration Number</ion-label>
+              <ion-input formControlName="regno" ></ion-input>
+            </ion-item>
+      </ion-row>
+  <ion-row>
+    <ion-col col-8>
+     
+      <ion-item no-padding style="padding-left: 11px;">
+
+        <ion-label floating>Model</ion-label>
+        <ion-select formControlName="model" >
+          <ion-option value='Pulsar' selected='true'>Pulsar</ion-option>
+          <ion-option value='Activa'>Activa</ion-option>
+        </ion-select>
+
+      </ion-item>
+    </ion-col>
+    <ion-col col-4 style="padding-right:0;">
+      <ion-item no-padding style="padding-right:0;">
+        <ion-label floating>Year</ion-label>
+        <ion-select formControlName="year" >
+          <ion-option value='2018' selected='true'>2018</ion-option>
+          <ion-option value='2017'>2017</ion-option>
+          <ion-option value='2016'>2016</ion-option>
+          <ion-option value='2015'>2015</ion-option>
+          <ion-option value='2014'>2014</ion-option>
+          <ion-option value='2013'>2013</ion-option>
+          <ion-option value='2012'>2012</ion-option>
+        </ion-select>
+
+      </ion-item>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <button ion-button block>ADD</button>
+  </ion-row>
+  </form>
+</ion-content>
