@@ -28,13 +28,21 @@ export class SelectBikePage {
     this.viewCtrl.dismiss();
   }
   addBike(){
-    this.dismiss();
+    
     let modal = this.modalCtrl.create(AddBikeDetailsPage);
+    modal.onDidDismiss(data=>{
+      console.log(data);
+    });
     modal.present();
+    this.dismiss();
   }
   selectYourBike(){
-    this.dismiss();
     let modal = this.modalCtrl.create(MyBikesPage);
+    modal.onDidDismiss(data=>{
+      console.log(data);
+    })
     modal.present();
+    this.dismiss();
+    
   }
 }

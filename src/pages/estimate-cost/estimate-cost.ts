@@ -25,7 +25,7 @@ export class EstimateCostPage {
     this.defaultCost = 200.00;
     this.sType = 100.00;
     this.premiumCost = 100.00;
-
+    this.optionValue=100;
     this.estimatedCost = this.defaultCost + this.sType+ this.premiumCost;
 
   }

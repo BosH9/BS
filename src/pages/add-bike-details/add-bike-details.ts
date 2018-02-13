@@ -42,26 +42,9 @@ export class AddBikeDetailsPage {
   }
   dismiss() {
     let data = { 'name': 'BosH' }
-    //this.navCtrl.pop();
-    this.navCtrl.push(BookPage,data).then(() => {
-      const index = this.viewCtrl.index;
-      // then we remove it from the navigation stack
-      this.navCtrl.remove(index);
-      //this.navParams.data(data);
-    }
-    );
+    
     this.viewCtrl.dismiss(data);
-    //this.navCtrl.setRoot(BookPage,{'data':'ram'});
-    ///console.log(x);
-    let currentPage = this.navCtrl.getActive().name;
-    console.log('current page is: ', currentPage);
-    if (this.navCtrl.getActive().component === BookPage) {
-      console.log('book page');
-    }
+    
   }
-  ionViewDidLeave() {
-    console.log('ionViewDidLeave AddBikeDetailsPage');
-    let currentPage = this.navCtrl.getActive().name;
-    console.log('current page is: ', currentPage);
-  }
+ 
 }
