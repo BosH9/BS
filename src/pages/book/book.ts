@@ -4,12 +4,8 @@ import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 
 import { EstimateCostPage } from '../../pages/estimate-cost/estimate-cost';
-<<<<<<< HEAD
-import { ChooseBikePage } from '../choose-bike/choose-bike';
-=======
 import { SelectBikePage } from '../../pages/select-bike/select-bike';
 import { AddBikeDetailsPage } from '../add-bike-details/add-bike-details';
->>>>>>> 653157a1b47997d4a957341a8bf12472dad6c4bf
 
 /**
  * Generated class for the BookPage page.
@@ -99,16 +95,10 @@ export class BookPage {
     let modal = this.modalCtrl.create(EstimateCostPage);
     modal.present();
   }
-<<<<<<< HEAD
-  chooseBike(){
-    let modal = this.modalCtrl.create(ChooseBikePage);
-    modal.present();
-  }
-=======
+  
   selectBike(){
     let modal = this.modalCtrl.create(SelectBikePage);
     modal.present();
   }
   
->>>>>>> 653157a1b47997d4a957341a8bf12472dad6c4bf
 }

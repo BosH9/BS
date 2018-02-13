@@ -11,7 +11,7 @@ import { BookingsPage } from '../pages/bookings/bookings';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = BookingsPage;
+  rootPage:any = BookPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
