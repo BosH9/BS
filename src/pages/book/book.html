@@ -22,7 +22,7 @@
       </ion-avatar>
       (Bike Image)
     </ion-toolbar> -->
-    <ion-row no-padding no-margin>
+    <!-- <ion-row no-padding no-margin>
       <ion-col col-4 no-padding>
         <ion-card text-center style="height:60px;" no-padding>
           <ion-label style="font-size:30px;">13</ion-label>
@@ -38,8 +38,22 @@
                 <ion-label style="font-size:30px;">15</ion-label>
               </ion-card>
           </ion-col>
+    </ion-row> -->
+    <ion-row>
+      <ion-segment >
+        <ion-segment-button value="13" style="height:120px;">
+          <ion-label style="font-size:30px;">13 <br>Feb</ion-label> <br>Feb
+        </ion-segment-button>
+        <ion-segment-button value="14" style="height:120px;">
+          <ion-label style="font-size:30px;">14 <br>Feb</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="15" style="height:120px;" color="danger">
+          <ion-label style="font-size:30px;">15 <br>Feb</ion-label> <br>Feb
+        </ion-segment-button>
+       
+      </ion-segment>
     </ion-row>
-    <ion-card text-center padding>
+    <!-- <ion-card text-center padding>
       <ion-label no-padding>Book your bike service for</ion-label>
       <button type="button" ion-button icon-left>
         Today &nbsp;
@@ -54,7 +68,7 @@
         <ion-icon ios="ios-calendar" md="md-calendar"></ion-icon>
       </button>
       <ion-label>( Book for 10-Feb-2018 02:00 PM )</ion-label>
-    </ion-card>
+    </ion-card> -->
     <ion-card padding (click)="selectBike()">
         <ion-label class="currency" text-center>
           <ion-icon ios="ios-arrow-forward" md="md-arrow-forward"></ion-icon>&nbsp;Add Bike Details

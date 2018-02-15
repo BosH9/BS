@@ -62,7 +62,15 @@ $colors: (
 // --------------------------------------------------
 // Material Design only Sass variables can go here
 
-
+$segment-button-md-text-color-activated:#6e5153;
+$segment-button-md-border-color-activated:red;
+$segment-button-md-border-bottom-width:3px;
+.segment-button{
+  opacity: 0.3 !important;
+}
+.segment-button.segment-activated{
+  opacity: 1 !important;
+}
 
 // App Windows Variables
 // --------------------------------------------------
