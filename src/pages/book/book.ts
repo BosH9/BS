@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams,  LoadingController, ModalController } from 'ionic-angular';
+import { NavController, NavParams, LoadingController, ModalController, ViewController } from 'ionic-angular';
 import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 
 import { EstimateCostPage } from '../../pages/estimate-cost/estimate-cost';
 import { SelectBikePage } from '../../pages/select-bike/select-bike';
 import { AddBikeDetailsPage } from '../add-bike-details/add-bike-details';
+import { ChooseYourBikePage } from '../choose-your-bike/choose-your-bike';
 
 /**
  * Generated class for the BookPage page.
@@ -23,7 +24,7 @@ export class BookPage {
   private submitClicked: boolean;
   base64Image: string;
   constructor(public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder, private camera: Camera, public loadingCtrl: LoadingController,
-     public modalCtrl: ModalController) {
+    public modalCtrl: ModalController, public viewCtrl: ViewController) {
     this.regForm = this.formBuilder.group({
       name: ['', Validators.required],
       dob: ['', Validators.required],
@@ -37,29 +38,29 @@ export class BookPage {
 
     let addBikeDetailsModal = this.modalCtrl.create(AddBikeDetailsPage, { userId: 8675309 });
     addBikeDetailsModal.onDidDismiss(data => {
-     console.log(data);
-   });
-   //addBikeDetailsModal.present();
+      console.log(data);
+    });
+    //addBikeDetailsModal.present();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad BookPage');
   }
-  ionViewWillEnter(){
+  ionViewWillEnter() {
     console.log('ionViewWillEnter BookPage');
   }
-  ionViewDidEnter(){
+  ionViewDidEnter() {
     console.log('ionViewDidEnter BookPage');
   }
-  ionViewWillLeave(){
+  ionViewWillLeave() {
     console.log('ionViewWillLeave BookPage');
     console.log(this.navParams.get('data'));
 
   }
-  ionViewDidLeave(){
+  ionViewDidLeave() {
     console.log('ionViewDidLeave BookPage');
   }
-  ionViewWillUnload(){
+  ionViewWillUnload() {
     console.log('ionViewWillUnload BookPage');
   }
   setBaseImage() {
@@ -82,23 +83,70 @@ export class BookPage {
     });
   }
   presentLoading() {
-    this.loadingCtrl.create({
+    let loading = this.loadingCtrl.create({
       content: 'Please wait...',
       duration: 3000,
       dismissOnPageChange: true
-    }).present();
+    });
+    loading.present();
+    loading.onDidDismiss(() => {
+      this.viewCtrl.dismiss();
+    });
   }
-  bookService(){
+  bookService() {
     this.presentLoading();
   }
-  estimateCost(){
+  estimateCost() {
     let modal = this.modalCtrl.create(EstimateCostPage);
     modal.present();
   }
-  
-  selectBike(){
+
+  selectBike() {
     let modal = this.modalCtrl.create(SelectBikePage);
     modal.present();
+
+    modal.onWillDismiss((data) => {
+      //console.log(data);
+      
+      if(data=="1"){
+        let modalChooseBike = this.modalCtrl.create(ChooseYourBikePage);
+        modalChooseBike.onDidDismiss(data => {
+          console.log(data);
+        });
+        modalChooseBike.present();
+        this.viewCtrl.dismiss();
+      }else{
+        let modalV = this.modalCtrl.create(AddBikeDetailsPage);
+        modalV.onDidDismiss(data=>{
+          console.log(data);
+        });
+        modalV.present();
+        this.viewCtrl.dismiss();
+      }
+      
+
+    });
+
+    // modal.onDidDismiss((data) => {
+    //   //console.log(data);
+    //   if(data=="1"){
+    //     let modalChooseBike = this.modalCtrl.create(ChooseYourBikePage);
+    //     modalChooseBike.onDidDismiss(data => {
+    //       console.log(data);
+    //     });
+    //     modalChooseBike.present();
+    //     this.viewCtrl.dismiss();
+    //   }else{
+    //     let modalV = this.modalCtrl.create(AddBikeDetailsPage);
+    //     modalV.onDidDismiss(data=>{
+    //       console.log(data);
+    //     });
+    //     modalV.present();
+    //     this.viewCtrl.dismiss();
+    //   }
+      
+
+    // });
   }
-  
+
 }

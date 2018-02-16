@@ -29,20 +29,24 @@ export class SelectBikePage {
   }
   addBike(){
     
-    let modal = this.modalCtrl.create(AddBikeDetailsPage);
-    modal.onDidDismiss(data=>{
-      console.log(data);
-    });
-    modal.present();
-    this.dismiss();
+    // let modal = this.modalCtrl.create(AddBikeDetailsPage);
+    // modal.onDidDismiss(data=>{
+    //   console.log(data);
+    // });
+    // modal.present();
+    // this.dismiss();
+
+    this.viewCtrl.dismiss("2");
   }
   selectYourBike(){
-    let modal = this.modalCtrl.create(MyBikesPage);
-    modal.onDidDismiss(data=>{
-      console.log(data);
-    })
-    modal.present();
-    this.dismiss();
+    // let xdata:any;
+    // let modal = this.modalCtrl.create(ChooseYourBikePage);
+    // modal.onDidDismiss(data=>{
+    //   //console.log(data);
+    //   xdata=data;
+    // });
+    // modal.present();
+    this.viewCtrl.dismiss("1");
     
   }
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, ModalController } from 'ionic-angular';
 
 import { BookPage } from '../../pages/book/book';
 
@@ -9,11 +9,14 @@ import { BookPage } from '../../pages/book/book';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, public modalCtrl: ModalController) {
 
   }
   onBook(){
-    this.navCtrl.push(BookPage);
+    //this.navCtrl.push(BookPage);
+
+    let modal = this.modalCtrl.create(BookPage);
+    modal.present();
   }
 
 }
