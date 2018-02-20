@@ -6,7 +6,7 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar hide-tabs>
     <ion-title>Book a service</ion-title>
   </ion-navbar>
 
@@ -39,6 +39,16 @@
               </ion-card>
           </ion-col>
     </ion-row> -->
+    <ion-list >
+     
+      <ion-item *ngIf="!regForm.controls.dob.valid && (regForm.controls.dob.touched || submitClicked)" no-lines>
+        <p>Please enter date of booking.</p>
+      </ion-item>
+      <ion-item lines>
+        <ion-label floating>Pickup Address</ion-label>
+        <ion-input type='text' formControlName="address" [class.invalid]="!regForm.controls.address.valid  && (regForm.controls.address.touched || submitClicked)"></ion-input>
+      </ion-item>
+    </ion-list>
     <ion-row style="align-items: center;">
       <ion-col col-4>
           <ion-segment >
@@ -91,16 +101,7 @@
         Your Estimated Cost: {{2500 | currency : "&#8377; " : 2 }}
       </ion-label>
     </ion-card> -->
-    <ion-list no-padding>
-     
-      <ion-item *ngIf="!regForm.controls.dob.valid && (regForm.controls.dob.touched || submitClicked)" no-lines>
-        <p>Please enter date of booking.</p>
-      </ion-item>
-      <ion-item lines>
-        <ion-label floating>Pickup Address</ion-label>
-        <ion-input type='text' formControlName="address" [class.invalid]="!regForm.controls.address.valid  && (regForm.controls.address.touched || submitClicked)"></ion-input>
-      </ion-item>
-    </ion-list>
+    
    
     <ion-list>
       <ion-item>

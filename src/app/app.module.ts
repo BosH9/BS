@@ -22,6 +22,7 @@ import { ChooseYourBikePage } from '../pages/choose-your-bike/choose-your-bike';
 import { MyBikesPage } from '../pages/my-bikes/my-bikes';
 import { BookingsPage } from '../pages/bookings/bookings';
 import { InvoicePage } from '../pages/invoice/invoice';
+import { DataProvider } from '../providers/data/data';
 
 
 @NgModule({
@@ -68,6 +69,7 @@ import { InvoicePage } from '../pages/invoice/invoice';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Camera,
+    DataProvider,
   ]
 })
 export class AppModule {}

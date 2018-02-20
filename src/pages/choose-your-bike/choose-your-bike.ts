@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, ViewController } from 'ionic-angular';
 
 import { Bike } from '../../modals/bike';
+import { BookPage } from '../book/book';
 
 /**
  * Generated class for the ChooseYourBikePage page.
@@ -27,7 +28,8 @@ export class ChooseYourBikePage {
   }
   select(bike:Bike){
     let data = { 'id':bike.id,'registrationModel': bike.registrationModel,'model' : bike.model,image : bike.image };
-    this.viewCtrl.dismiss(data);
+    //this.viewCtrl.dismiss(data);
+    this.navCtrl.push(BookPage,data);
   }
   getMyBikes(){
     

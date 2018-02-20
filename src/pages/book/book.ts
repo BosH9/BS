@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, LoadingController, ModalController, ViewController } from 'ionic-angular';
+import { NavController, NavParams, LoadingController, ModalController, ViewController, Events } from 'ionic-angular';
 import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 
@@ -7,6 +7,7 @@ import { EstimateCostPage } from '../../pages/estimate-cost/estimate-cost';
 import { SelectBikePage } from '../../pages/select-bike/select-bike';
 import { AddBikeDetailsPage } from '../add-bike-details/add-bike-details';
 import { ChooseYourBikePage } from '../choose-your-bike/choose-your-bike';
+import { TabsPage } from '../tabs/tabs';
 
 /**
  * Generated class for the BookPage page.
@@ -24,7 +25,7 @@ export class BookPage {
   private submitClicked: boolean;
   base64Image: string;
   constructor(public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder, private camera: Camera, public loadingCtrl: LoadingController,
-    public modalCtrl: ModalController, public viewCtrl: ViewController) {
+    public modalCtrl: ModalController, public viewCtrl: ViewController, events: Events) {
     this.regForm = this.formBuilder.group({
       name: ['', Validators.required],
       dob: ['', Validators.required],
@@ -41,6 +42,12 @@ export class BookPage {
       console.log(data);
     });
     //addBikeDetailsModal.present();
+
+    events.subscribe('shareObject', (dummy, dummyNumber) => {
+      console.log('Welcome', dummy.firstName, 'at', dummyNumber);
+  }); 
+  
+
   }
 
   ionViewDidLoad() {
@@ -90,7 +97,8 @@ export class BookPage {
     });
     loading.present();
     loading.onDidDismiss(() => {
-      this.viewCtrl.dismiss();
+      this.navCtrl.popToRoot();
+      //this.viewCtrl.dismiss();
     });
   }
   bookService() {
@@ -102,30 +110,32 @@ export class BookPage {
   }
 
   selectBike() {
-    let modal = this.modalCtrl.create(SelectBikePage);
-    modal.present();
+   // let modal = this.modalCtrl.create(SelectBikePage);
+    //modal.present();
 
-    modal.onWillDismiss((data) => {
-      //console.log(data);
+    this.navCtrl.push(SelectBikePage);
+
+    // modal.onWillDismiss((data) => {
+    //   //console.log(data);
       
-      if(data=="1"){
-        let modalChooseBike = this.modalCtrl.create(ChooseYourBikePage);
-        modalChooseBike.onDidDismiss(data => {
-          console.log(data);
-        });
-        modalChooseBike.present();
-        this.viewCtrl.dismiss();
-      }else{
-        let modalV = this.modalCtrl.create(AddBikeDetailsPage);
-        modalV.onDidDismiss(data=>{
-          console.log(data);
-        });
-        modalV.present();
-        this.viewCtrl.dismiss();
-      }
+    //   if(data=="1"){
+    //     let modalChooseBike = this.modalCtrl.create(ChooseYourBikePage);
+    //     modalChooseBike.onDidDismiss(data => {
+    //       console.log(data);
+    //     });
+    //     modalChooseBike.present();
+    //     this.viewCtrl.dismiss();
+    //   }else{
+    //     let modalV = this.modalCtrl.create(AddBikeDetailsPage);
+    //     modalV.onDidDismiss(data=>{
+    //       console.log(data);
+    //     });
+    //     modalV.present();
+    //     this.viewCtrl.dismiss();
+    //   }
       
 
-    });
+    // });
 
     // modal.onDidDismiss((data) => {
     //   //console.log(data);
@@ -149,4 +159,5 @@ export class BookPage {
     // });
   }
 
+ 
 }
