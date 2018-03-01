@@ -45,13 +45,13 @@
   <ion-item *ngFor="let bike of bikes" style="border:1px solid #222;margin-bottom:15px;" (click)="select(bike)">
     <ion-row>
       <ion-col col-9 text-center>
-        {{bike.model}} - {{bike.yearOfManufacture}}<br>
-        <b>{{bike.registrationModel}}</b><br>
-        <small>Last serviced on {{bike.lastServicedOn || 'N/A'}}</small>
+        {{bike.Model}} - {{bike.YearOfManufacture}}<br>
+        <b>{{bike.RegistrationModel}}</b><br>
+        <small>Last serviced on {{bike.LastServicedOn || 'N/A'}}</small>
       </ion-col>
       <ion-col col-3>
           <ion-avatar>
-              <img name='pimage' height="100px" src="{{bike.image}}" alt="bike" class="img-center-round">
+              <img name='pimage' height="100px" src="{{bike.Image}}" alt="bike" class="img-center-round">
             </ion-avatar>
         </ion-col>
     </ion-row>
