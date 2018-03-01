@@ -19,13 +19,14 @@ import { DataProvider } from '../../providers/data/data';
   templateUrl: 'select-bike.html',
 })
 export class SelectBikePage {
-  bikes:Bike[];
+  bikes:any;
   constructor(public navCtrl: NavController, public navParams: NavParams,
      public viewCtrl: ViewController, public modalCtrl: ModalController,
       public dataProvider: DataProvider) {
-      this.getMyBikes();
+      //this.getMyBikes();
       dataProvider.getBikes('1').subscribe(data=>{
         console.log(data);
+        this.bikes=data;
       });
   }
 
@@ -66,6 +67,8 @@ export class SelectBikePage {
     let b4 = new Bike(4,"TS 24 GG 2061","HUNK","assets/imgs/motorcycle_32x32.png",2016,"01-01-2016",null,"Y","02-03-2016");
     let b5 = new Bike(5,"AP 01 AB 3433","PASSION PLUS","assets/imgs/motorcycle_32x32.png",2005,"01-01-2005",null,"Y","04-02-2017");
     this.bikes = [b1,b2,b3,b4,b5];
+
+    
   }
   select(bike:Bike){
     let data = { 'id':bike.id,'registrationModel': bike.registrationModel,'model' : bike.model,image : bike.image };

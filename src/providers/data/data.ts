@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Bike } from '../../modals/bike';
 import { Observable } from 'rxjs/Observable';
@@ -11,13 +11,21 @@ import { Observable } from 'rxjs/Observable';
 */
 @Injectable()
 export class DataProvider {
-  url:string = 'http://localhost:30000/'
+  url:string = 'http://localhost:59327/';
+  
   constructor(public http: HttpClient) {
     console.log('Hello DataProvider Provider');
+   
   }
 
   getBikes(userId:string){
-    return this.http.get<Bike[]>(this.url+userId);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+      })
+    };
+    let getbikesurl = this.url+"api/ActiveBikes"
+    return this.http.post(getbikesurl,httpOptions);
   }
 
 }

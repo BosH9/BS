@@ -24,7 +24,7 @@ import { BookingsPage } from '../pages/bookings/bookings';
 import { InvoicePage } from '../pages/invoice/invoice';
 import { DataProvider } from '../providers/data/data';
 
-
+import { HttpClientModule } from '@angular/common/http'; 
 @NgModule({
   declarations: [
     MyApp,
@@ -44,6 +44,7 @@ import { DataProvider } from '../providers/data/data';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp),
     Ionic2RatingModule
   ],
