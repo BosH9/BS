@@ -25,6 +25,8 @@ import { InvoicePage } from '../pages/invoice/invoice';
 import { DataProvider } from '../providers/data/data';
 
 import { HttpClientModule } from '@angular/common/http'; 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
+
 @NgModule({
   declarations: [
     MyApp,
@@ -44,6 +46,7 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     IonicModule.forRoot(MyApp),
     Ionic2RatingModule
